@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "CosmoNote",
+  "version": "1.0.0",
+  "description": "코스모의 노트",
+  "permissions": ["webRequest", "scripting", "tabs", "storage", "downloads"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_idle",
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.jpg",
+    "48": "icons/icon64.jpg",
+    "128": "icons/icon128.jpg"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*.svg"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
