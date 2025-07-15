@@ -96,7 +96,7 @@ function addCosmoNoteButtons(container) {
     "자막생성",
     "cosmonote-btn-subtitle",
     "subtitles.svg",
-    "subtitles"
+    "subtitle"
   );
   const btnSummary = createButton(
     "AI 노트로 요약",
