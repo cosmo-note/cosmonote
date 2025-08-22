@@ -4,14 +4,14 @@
   "version": "1.0.0",
   "description": "__MSG_extensionDescription__",
   "default_locale": "ko",
-  "permissions": ["scripting", "activeTab"],
+  "permissions": ["scripting", "cookies"],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
       "run_at": "document_idle",
-      "matches": ["<all_urls>"],
+      "matches": ["https://*.ac.kr/*"],
       "js": ["content.js"],
       "css": ["content.css"]
     }
@@ -25,7 +25,8 @@
   "web_accessible_resources": [
     {
       "resources": ["icons/*.svg"],
-      "matches": ["<all_urls>"]
+      "matches": ["https://*.ac.kr/*"]
     }
-  ]
+  ],
+  "host_permissions": ["https://cosmonote.blbt.app/"]
 }
