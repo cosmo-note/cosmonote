@@ -4,8 +4,7 @@
   "version": "1.0.0",
   "description": "__MSG_extensionDescription__",
   "default_locale": "ko",
-  "permissions": ["scripting"],
-  "host_permissions": ["<all_urls>"],
+  "permissions": ["scripting", "activeTab"],
   "background": {
     "service_worker": "background.js"
   },

@@ -1,10 +1,10 @@
 {
   "extensionName": {
-    "message": "코스모의 노트",
+    "message": "Cosmo's note",
     "description": "The name of the extension."
   },
   "extensionDescription": {
-    "message": "온라인 수업의 종결자, 코스모의 노트",
+    "message": "The ultimate online class tool, 'cosmos note'",
     "description": "The description of the extension."
   }
 }
