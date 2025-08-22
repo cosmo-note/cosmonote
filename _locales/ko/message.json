@@ -1,0 +1,10 @@
+{
+  "extensionName": {
+    "message": "Cosmo's note",
+    "description": "The name of the extension."
+  },
+  "extensionDescription": {
+    "message": "The ultimate online class tool, 'cosmos note'",
+    "description": "The description of the extension."
+  }
+}
