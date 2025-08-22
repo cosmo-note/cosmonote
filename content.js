@@ -1,5 +1,8 @@
 let isLogged = false;
 
+const API_URL = "https://cosmonote-api.blbt.app";
+const WEB_URL = "https://cosmonote.blbt.app";
+
 async function main() {
   const lectureName = getLectureName();
   if (!lectureName) {
@@ -7,9 +10,9 @@ async function main() {
   }
 
   const res = await bAxios({
-    url: "/api/auth/me",
+    url: WEB_URL + "/auth/me",
   });
-  if (res.data && res.data.user) {
+  if (res.data && res.data.message) {
     isLogged = true;
   }
 
@@ -71,13 +74,9 @@ function addCosmoNoteButtons(container) {
     img.alt = "";
     img.className = "cosmonote-btn-icon";
 
-    if (
-      !isLogged &&
-      (className === "cosmonote-btn-subtitle" ||
-        className === "cosmonote-btn-summary")
-    ) {
+    if (!isLogged) {
       btn.setAttribute("data-tooltip", "로그인 후 이용 가능합니다.");
-      btn.onclick = () => window.open("http://localhost:3000/auth/signin");
+      btn.onclick = () => window.open(WEB_URL + "/auth/signin");
     }
 
     btn.appendChild(img);
@@ -92,21 +91,14 @@ function addCosmoNoteButtons(container) {
     "archive.svg",
     "video-download"
   );
-  const btnSubtitle = createButton(
-    "자막생성",
-    "cosmonote-btn-subtitle",
-    "subtitles.svg",
-    "subtitles"
-  );
   const btnSummary = createButton(
     "AI 노트로 요약",
     "cosmonote-btn-summary",
     "wand-shine.svg",
-    "ai-note"
+    "ainote/payment"
   );
 
   btnGroup.appendChild(btnDownload);
-  btnGroup.appendChild(btnSubtitle);
   btnGroup.appendChild(btnSummary);
 
   container.insertAdjacentElement("afterend", btnGroup);
@@ -136,11 +128,11 @@ function btnClickListener(container, pathname) {
   const videoUrl = match[1];
   const moodleSession = getCookieValue("MoodleSession");
   window.open(
-    `http://localhost:3000/${pathname}?videoUrl=${encodeURIComponent(
+    `${WEB_URL}/${pathname}?videoUrl=${encodeURIComponent(
       videoUrl
     )}&moodleSession=${encodeURIComponent(
       moodleSession
-    )}&videoName=${encodeURIComponent(videoName)}`,
+    )}&displayName=${encodeURIComponent(videoName)}`,
     "_blank"
   );
 }

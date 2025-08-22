@@ -2,7 +2,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === "FETCH_DATA") {
     const { url, method = "GET", headers = {}, data } = message.options;
 
-    fetch("http://localhost:3000" + url, {
+    fetch(url, {
       method,
       headers: {
         "Content-Type": "application/json",

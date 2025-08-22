@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "CosmoNote",
+  "name": "코스모의 노트",
   "version": "1.0.0",
-  "description": "코스모의 노트",
-  "permissions": ["webRequest", "scripting", "tabs", "storage", "downloads"],
+  "description": "온라인 수업의 종결자, 코스모의 노트",
+  "permissions": ["webRequest", "scripting", "tabs"],
   "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
@@ -17,9 +17,10 @@
     }
   ],
   "icons": {
-    "16": "icons/icon16.jpg",
-    "48": "icons/icon64.jpg",
-    "128": "icons/icon128.jpg"
+    "16": "icons/icon16.png",
+    "48": "icons/icon64.png",
+    "128": "icons/icon128.png",
+    "256": "icons/icon256.png"
   },
   "web_accessible_resources": [
     {
