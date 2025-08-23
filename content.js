@@ -4,7 +4,9 @@ const API_URL = "https://cosmonote-api.blbt.app";
 const WEB_URL = "https://cosmonote.blbt.app";
 
 async function main() {
+  console.log("main()");
   const lectureName = getLectureName();
+
   if (!lectureName) {
     return;
   }
@@ -53,8 +55,13 @@ function getVideoContainers() {
   );
 
   const filteredContainers = videoContainers.filter((container) => {
-    const img = container.querySelector("img");
-    return img && img.getAttribute("alt") === "동영상";
+    const a = container.querySelector("a");
+    if (a) {
+      const onclick = a?.getAttribute("onclick");
+      return onclick.indexOf("viewer.php") !== -1;
+    } else {
+      return false;
+    }
   });
 
   return filteredContainers;
