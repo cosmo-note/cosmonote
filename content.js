@@ -56,8 +56,9 @@ function getVideoContainers() {
 
   const filteredContainers = videoContainers.filter((container) => {
     const a = container.querySelector("a");
-    if (a) {
-      const onclick = a?.getAttribute("onclick");
+    const onclick = a?.getAttribute("onclick");
+
+    if (onclick) {
       return onclick.indexOf("viewer.php") !== -1;
     } else {
       return false;
@@ -73,6 +74,7 @@ function addCosmoNoteButtons(container) {
 
   function createButton(text, className, icon, pathname) {
     const btn = document.createElement("button");
+    btn.style.cursor = "pointer";
     btn.className = `cosmonote-btn ${className}`;
     btn.onclick = () => btnClickListener(container, pathname);
 
@@ -82,7 +84,7 @@ function addCosmoNoteButtons(container) {
     img.className = "cosmonote-btn-icon";
 
     if (!isLogged) {
-      btn.setAttribute("data-tooltip", "로그인 후 이용 가능합니다.");
+      btn.setAttribute("data-tooltip", "코스모의 노트 로그인으로 이동합니다.");
       btn.onclick = () => window.open(WEB_URL + "/auth/signin");
     }
 

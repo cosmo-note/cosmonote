@@ -64,7 +64,6 @@
 
 .cosmonote-btn[data-tooltip] {
   position: relative;
-  cursor: default;
 }
 
 .cosmonote-btn[data-tooltip]::after {
